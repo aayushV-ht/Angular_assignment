@@ -1,0 +1,54 @@
+/* src/app/user-card/user-card.component.css */
+
+.user-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align cards horizontally */
+    align-items: flex-start; /* Align cards to the top */
+    height: 100vh; /* Set container height to viewport height */
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    width: calc(33.33% - 20px); /* Display three cards per row */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+      }
+  
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .card-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px; 
+    margin-top:20px;   
+  }
+  
+  .card-info {
+    flex-grow: 1; /* Expand info to fill available space */
+    text-align: left;
+    text-align: center;
+  }
+  
+  /* Media query for mobile view (1 card per row) */
+  @media screen and (max-width: 767px) {
+    .card {
+      width: calc(100% - 20px);
+    }
+    .card-content {
+      flex-direction: column; /* Stack image and info in mobile view */
+    }
+    .card-image img {
+      margin-right: 0; /* Remove spacing in mobile view */
+    }
+  }
+  
