@@ -22,13 +22,12 @@ export class UserListComponent implements OnInit {
   editUser(user: any): void {
     const dialogRef = this.dialog.open(EditUserComponent, {
       width: '400px', // Set the desired width
-      data: { userToEdit: { ...user } }, // Pass the user data to the dialog
+      data: { userToEdit: { ...user } }, 
     });
   
     dialogRef.afterClosed().subscribe(result => {
-      // Handle any logic after the dialog is closed (e.g., refresh user list)
       if (result === 'updated') {
-        this.refreshUserList(); // You can implement this function to refresh the user list
+        this.refreshUserList(); 
       }
     });
   }
@@ -36,6 +35,7 @@ export class UserListComponent implements OnInit {
 
   openDeleteUserDialog(user: any): void {
     const dialogRef = this.dialog.open(DeleteUserComponent, {
+      width: 'fit-content' ,
       data: user
     });
 
