@@ -6,11 +6,13 @@ import { FlexLayoutModule } from '@angular/flex-layout'; // Import FlexLayoutMod
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserCardComponent } from './MainSection/user-card/user-card.component';
+import { UserListComponent } from './MainSection/User-List/user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

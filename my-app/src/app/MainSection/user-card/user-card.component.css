@@ -3,16 +3,16 @@
 .user-card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center align cards horizontally */
-    align-items: flex-start; /* Align cards to the top */
-    height: 100vh; /* Set container height to viewport height */
+    justify-content: center; 
+    align-items: flex-start; 
+    height: 100vh; 
   }
   
   .card {
     border: 1px solid #ddd;
     padding: 15px;
     margin: 10px;
-    width: calc(33.33% - 20px); /* Display three cards per row */
+    width: calc(33.33% - 20px); 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
@@ -34,21 +34,20 @@
   }
   
   .card-info {
-    flex-grow: 1; /* Expand info to fill available space */
+    flex-grow: 1; 
     text-align: left;
     text-align: center;
   }
   
-  /* Media query for mobile view (1 card per row) */
   @media screen and (max-width: 767px) {
     .card {
       width: calc(100% - 20px);
     }
     .card-content {
-      flex-direction: column; /* Stack image and info in mobile view */
+      flex-direction: column;
     }
     .card-image img {
-      margin-right: 0; /* Remove spacing in mobile view */
+      margin-right: 5px; 
     }
   }
   
