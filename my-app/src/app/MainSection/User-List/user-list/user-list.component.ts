@@ -6,13 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users = [
-    { id: 1, firstName: 'aayush', lastName: 'viswase', phone: '9503446090', last_login: '-', role: 'User' },
-    { id: 2, firstName: 'Jane', lastName: 'Smith', phone: '987-654-3210', last_login: '-', role: 'Admin' },
-    { id: 1, firstName: 'aayush', lastName: 'viswase', phone: '9503446090', last_login: '-', role: 'User' },
-    { id: 2, firstName: 'Jane', lastName: 'Smith', phone: '987-654-3210', last_login: '-', role: 'Admin' },
-    
-  ];
+  users: any[] = []; // Initialize as an empty array
+
   editUser(user: any) {
     // Implement edit user functionality here
     console.log('Edit user:', user);
@@ -21,10 +16,23 @@ export class UserListComponent implements OnInit {
   deleteUser(user: any) {
     // Implement delete user functionality here
     console.log('Delete user:', user);
+    alert('The user has been deleted successfully');
+    // Find the user in the users array and remove it
+    const userIndex = this.users.findIndex(u => u.id === user.id);
+    if (userIndex !== -1) {
+      this.users.splice(userIndex, 1);
+      // Update localStorage to remove the user
+      localStorage.setItem('users', JSON.stringify(this.users));
+    }
   }
 
   constructor() { }
 
   ngOnInit(): void {
+    // Retrieve users from localStorage during component initialization
+    const storedUsers = localStorage.getItem('users');
+    if (storedUsers) {
+      this.users = JSON.parse(storedUsers);
+    }
   }
 }
