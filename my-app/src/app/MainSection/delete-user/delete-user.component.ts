@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-delete-user',
@@ -7,16 +6,5 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./delete-user.component.css']
 })
 export class DeleteUserComponent {
-  @Input() user: any;
-  constructor(public activeModal: NgbActiveModal) {}
 
-  confirmDelete() {
-    // Implement delete user functionality here
-    console.log('Delete user:', this.user);
-
-    // Close the modal
-    this.activeModal.close('Delete confirmed');
-  }
-
-  
 }

@@ -6,20 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent implements OnInit {
-  users = [
-    { id: 1, name: 'Aayush', active: true, email: 'aayush@example.com' },
-    { id: 2, name: 'omkar', active: false, email: 'omkar@example.com' },
-    { id: 3, name: 'Aayush', active: true, email: 'aayush@example.com' },
-    { id: 4, name: 'omkar', active: false, email: 'omkar@example.com' },
-    { id: 1, name: 'Aayush', active: true, email: 'aayush@example.com' },
-    { id: 2, name: 'omkar', active: false, email: 'omkar@example.com' },
-    { id: 3, name: 'Aayush', active: true, email: 'aayush@example.com' },
-    { id: 4, name: 'omkar', active: false, email: 'omkar@example.com' },
-   
-  ];
+  users: any[] = []; // Initialize as an empty array
 
   constructor() { }
 
   ngOnInit(): void {
+    // Retrieve users from localStorage during component initialization
+    const storedUsers = localStorage.getItem('users');
+    if (storedUsers) {
+      this.users = JSON.parse(storedUsers);
+    }
   }
 }
