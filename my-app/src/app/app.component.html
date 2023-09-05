@@ -1,3 +1,29 @@
-<app-user-list></app-user-list>
-<app-user-card></app-user-card>
-<app-add-user></app-add-user>
+<nav>
+    <a class="button" routerLink="/user-list" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
+        user-list
+    </a>
+    <a class="button" routerLink="/user-card" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
+        user-card
+    </a>
+    <a class="button" routerLink="/add-user" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
+        add-user
+    </a>
+</nav>
+<router-outlet></router-outlet>
+
+<!-- <nav>
+    <ul class="main-menu">
+        <li class="active">Dashboard</li>
+        <li>Users</li>
+    </ul>
+</nav>
+<div class="main-section">
+   
+    <h2>Dashboard</h2>
+   
+</div>
+<div class="navbar">
+    <button>Button 1</button>
+    <button>Button 2</button>
+   
+</div> -->

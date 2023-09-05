@@ -15,6 +15,7 @@ import { AddUserComponent } from './NavigationSection/AddUser/add-user/add-user.
 import { EditUserComponent } from './MainSection/edit-user/edit-user.component';
 import { DeleteUserComponent } from './MainSection/delete-user/delete-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     BrowserAnimationsModule, 
     MatDialogModule,
+    RouterModule.forRoot([
+      {path: 'user-list', component: UserListComponent},
+      {path: 'user-card', component: UserCardComponent},
+      {path: 'add-user', component: AddUserComponent},
+      {path: '', redirectTo: '/user-list', pathMatch: 'full'},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
