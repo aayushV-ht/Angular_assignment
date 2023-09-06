@@ -57,8 +57,8 @@ export class UserListComponent implements OnInit {
     this.updateFilteredUsers();
   }
 
-  onItemsPerPageChange(itemsPerPage: number): void {
-    this.recordsPerPage = itemsPerPage;
+  onItemsPerPageChange(value: number): void {
+    this.recordsPerPage = value;
     this.currentPage = 1;
     this.updateFilteredUsers();
   }
@@ -67,5 +67,7 @@ export class UserListComponent implements OnInit {
     const startIndex = (this.currentPage - 1) * this.recordsPerPage;
     const endIndex = Math.min(startIndex + this.recordsPerPage, this.totalRecords);
     this.filteredUsers = this.users.slice(startIndex, endIndex);
+
+
   }
 }

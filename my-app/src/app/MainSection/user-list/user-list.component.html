@@ -23,8 +23,8 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngIf="filteredUsers.length > 0; else noResults">
-                <tr *ngFor="let user of filteredUsers">
+            <ng-container *ngIf="filteredUsers.length > 0 ; else noResults">
+                <tr *ngFor="let user of filteredUsers.slice(0,recordsPerPage)">
                     <td>{{ user.id }}</td>
                     <td><img src="./assets/user.jpeg" alt="User Image"> {{ user.firstName }} {{ user.lastName }}</td>
                     <td>{{ user.phone }}</td>
