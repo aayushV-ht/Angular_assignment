@@ -34,7 +34,9 @@ export class DeleteUserComponent implements OnInit {
         localStorage.setItem('users', JSON.stringify(users));
 
         console.log('User Deleted:', this.userToDelete);
+        alert("The user has been deleted successfully"); 
         this.router.navigate(['/user-list']);
+       
       } else {
         console.error('User not found:', this.userToDelete);
         this.router.navigate(['/user-list']);

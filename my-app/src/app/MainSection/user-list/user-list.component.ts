@@ -27,6 +27,7 @@ export class UserListComponent implements OnInit {
 
   deleteuser(user: any): void {
     this.router.navigate(['/delete-user', { userToDelete: JSON.stringify(user) }]);
+    
   }
 
   onSearch(): void {
