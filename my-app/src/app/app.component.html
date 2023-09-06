@@ -1,56 +1,21 @@
-<!-- <nav>
+<div class="container">
+  <div class="menu">
+    <ul class="main-menu">
+      <li>Dashboard</li>
+      <li class="active">Users</li>
+    </ul>
+  </div>
+  <div class="nav">
     <a class="button" routerLink="/user-list" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-        user-list
+      user-list
     </a>
     <a class="button" routerLink="/user-card" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-        user-card
+      user-card
     </a>
     <a class="button" routerLink="/add-user" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-        add-user
+      add-user
     </a>
-</nav>
-<router-outlet></router-outlet> -->
 
-<!-- <nav>
-    <ul class="main-menu">
-        <li class="active">Dashboard</li>
-        <li>Users</li>
-    </ul>
-</nav>
-
-<div class="navbar">
-
-    <nav>
-        <h2>Dashboard</h2>
-        <a class="button" routerLink="/user-list" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-            user-list
-        </a>
-        <a class="button" routerLink="/user-card" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-            user-card
-        </a>
-        <a class="button" routerLink="/add-user" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-            add-user
-        </a>
-    </nav>
-
-</div> -->
-<div class="container">
-    <div class="menu">
-        <ul class="main-menu">
-            <li class="active">Dashboard</li>
-            <li>Users</li>
-        </ul>
-    </div>
-    <div class="nav">
-        <a class="button" routerLink="/user-list" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-            user-list
-        </a>
-        <a class="button" routerLink="/user-card" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-            user-card
-        </a>
-        <a class="button" routerLink="/add-user" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-            add-user
-        </a>
-    </div>
-    <div class="main"><router-outlet></router-outlet></div>
+  </div>
+  <div class="main"><router-outlet></router-outlet></div>
 </div>

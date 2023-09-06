@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-user',
@@ -8,25 +9,33 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class EditUserComponent implements OnInit {
   editedUser: any;
+  userToEdit: any;
 
-  constructor(
-    public dialogRef: MatDialogRef<EditUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.editedUser = { ...data.userToEdit };
+
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.editedUser = {}; 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const userToEditStr = params.get('userToEdit');
+      if (userToEditStr) {
+        this.userToEdit = JSON.parse(userToEditStr);
+        this.editedUser = { ...this.userToEdit };
+      }
+    });
+  }
 
   onSubmit(): void {
     
     this.updateUserInLocalStorage(this.editedUser);
 
-    this.dialogRef.close('updated');
+    this.router.navigate(['/user-list']);
+    alert("The user has been updated successfully");  
   }
 
   onCancel(): void {
-    this.dialogRef.close();
+    this.router.navigate(['/user-list']);
   }
 
   private updateUserInLocalStorage(updatedUser: any): void {

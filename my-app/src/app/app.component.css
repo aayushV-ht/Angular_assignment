@@ -1,20 +1,41 @@
 
 .container {  display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.8fr 1.2fr 1fr;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 0.5fr 1.5fr 0.1fr;
+    grid-template-rows: 0.2fr 1.2fr 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
+    
     grid-template-areas:
       "menu nav nav"
       "menu main main"
       "menu main main";
+      position:absolute;
+      width: 100%;
   }
   
-  .menu { grid-area: menu; }
+  .menu { 
+    grid-area: menu;
+    width: 220px;
+    height: 100%;
+    position: relative;
+    top:90px;
+    
+    
+}
   
-  .nav { grid-area: nav; }
+  .nav { grid-area: nav; display: block;
+        margin-bottom:100px;
+        position: relative;
+    top:20px;
+    }
   
-  .main { grid-area: main; }
+  .main { 
+    grid-area: main; 
+    width:95%;
+    
+}
   .button {
     box-shadow: inset 0 1px 0 0 #ffffff;
     background: #fdfdfd ;
@@ -41,13 +62,21 @@
 
 .main-menu li {
     padding: 10px;
+    color:#483285;
+    
+    list-style-type: none;
 }
 .main-menu li:hover {
-    background-color: #ccc;
+    background-color: #483285;
+    color: white;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 .active {
-    background-color: #fff;
+    background-color: #a195c2;
+    
+    border-radius: 15px;
+    border:solid #483285 2px;
     color: #333;
 } 

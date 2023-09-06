@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-user',
@@ -7,35 +7,42 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./delete-user.component.css']
 })
 export class DeleteUserComponent implements OnInit {
-  constructor(
-    public dialogRef: MatDialogRef<DeleteUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  userToDelete: any;
 
-  ngOnInit(): void {}
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.userToDelete = {};
+  }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const userToDeleteData = params.get('userToDelete');
+      if (userToDeleteData) {
+        this.userToDelete = JSON.parse(userToDeleteData);
+      }
+    });
+  }
 
   confirmDelete(): void {
     const storedUsers = localStorage.getItem('users');
     if (storedUsers) {
       const users: any[] = JSON.parse(storedUsers);
 
-      const userIndex = users.findIndex(u => u.id === this.data.id);
+      const userIndex = users.findIndex(u => u.id === this.userToDelete.id);
       if (userIndex !== -1) {
         users.splice(userIndex, 1);
 
         localStorage.setItem('users', JSON.stringify(users));
 
-        console.log('User Deleted:', this.data);
-
-        this.dialogRef.close('confirm');
+        console.log('User Deleted:', this.userToDelete);
+        this.router.navigate(['/user-list']);
       } else {
-        console.error('User not found:', this.data);
-        this.dialogRef.close(); 
+        console.error('User not found:', this.userToDelete);
+        this.router.navigate(['/user-list']);
       }
     }
   }
 
   cancelDelete(): void {
-    this.dialogRef.close();
+    this.router.navigate(['/user-list']);
   }
 }
