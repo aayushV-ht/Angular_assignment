@@ -16,6 +16,7 @@ import { EditUserComponent } from './MainSection/edit-user/edit-user.component';
 import { DeleteUserComponent } from './MainSection/delete-user/delete-user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import { PaginationComponent } from './MainSection/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
     AddUserComponent,
     EditUserComponent,
     DeleteUserComponent,
+    PaginationComponent,
     
   ],
   imports: [

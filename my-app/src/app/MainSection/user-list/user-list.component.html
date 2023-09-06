@@ -32,7 +32,7 @@
                     <td>{{ user.role }}</td>
                     <td>
                         <button (click)="editUser(user)">Edit</button>
-                        <button (click)="deleteuser(user)">Delete</button>
+                        <button (click)="deleteUser(user)">Delete</button>
                     </td>
                 </tr>
             </ng-container>
@@ -43,4 +43,10 @@
             </ng-template>
         </tbody>
     </table>
+
+    <app-pagination [totalRecords]="totalRecords" [recordsPerPage]="recordsPerPage"
+        [itemsPerPageOptions]="itemsPerPageOptions" (pageChange)="onPageChange($event)"
+        (itemsPerPageChange)="onItemsPerPageChange($event)"></app-pagination>
+
+
 </span>
