@@ -24,7 +24,8 @@ import { RouterModule } from '@angular/router';
     UserListComponent,
     AddUserComponent,
     EditUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    
   ],
   imports: [
     BrowserModule,
