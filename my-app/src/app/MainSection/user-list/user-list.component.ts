@@ -34,6 +34,7 @@ export class UserListComponent implements OnInit {
   deleteUser(user: any): void {
     this.router.navigate(['/delete-user', { userToDelete: JSON.stringify(user) }]);
   }
+  //Searching filter++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   onSearch(): void {
     this.filteredUsers = this.users.filter((user) =>
@@ -51,6 +52,7 @@ export class UserListComponent implements OnInit {
       user.phone.includes(lowerCaseQuery)
     );
   }
+  //Pagination++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   onPageChange(page: number): void {
     this.currentPage = page;
@@ -70,4 +72,49 @@ export class UserListComponent implements OnInit {
 
 
   }
+  //Sorting++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  onSortChange(sortOption: string): void {
+    if (sortOption === 'asc') {
+      this.filteredUsers.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
+    } else if (sortOption === 'desc') {
+      this.filteredUsers.sort((a, b) => (a.firstName < b.firstName ? 1 : -1));
+    } else if (sortOption === 'createdDate') {
+      this.filteredUsers.sort((a, b) => {
+
+
+        const dateA = new Date(a.createdDate);
+        const dateB = new Date(b.createdDate);
+        // console.log(a.firstName);
+        // console.log(typeof (dateA));
+        // console.log(dateA);
+
+        if (dateA === dateB) {
+          return 0;
+        } else if (dateA < dateB) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    } else if (sortOption === 'lastUpdated') {
+      this.filteredUsers.sort((a, b) => {
+
+        const timestamp1 = Date.parse(a.lastUpdated);
+        const lastdateA = new Date(timestamp1);
+
+        const timestamp2 = Date.parse(b.lastUpdated);
+        const lastdateB = new Date(timestamp2);
+
+        if (lastdateA === lastdateB) {
+          return 0;
+        } else if (lastdateA < lastdateB) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+    }
+  }
 }
+

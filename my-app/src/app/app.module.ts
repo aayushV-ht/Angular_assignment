@@ -17,6 +17,7 @@ import { DeleteUserComponent } from './MainSection/delete-user/delete-user.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { PaginationComponent } from './MainSection/pagination/pagination.component';
+import { SortingComponent } from './MainSection/sorting/sorting.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PaginationComponent } from './MainSection/pagination/pagination.compone
     EditUserComponent,
     DeleteUserComponent,
     PaginationComponent,
+    SortingComponent,
     
   ],
   imports: [
