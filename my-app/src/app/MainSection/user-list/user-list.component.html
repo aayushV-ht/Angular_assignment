@@ -2,8 +2,8 @@
     <span class="sort">
         <app-sorting (sortChange)="onSortChange($event)"></app-sorting>
     </span>
-    <span class="search">
-        <input type="text" placeholder="Filter By">
+    <span class="filter">
+        <app-filter (filterChange)="onFilterChange($event)"></app-filter>
     </span>
     <span class="search" id="search">
         <input type="text" placeholder="Search Users" [(ngModel)]="searchQuery" (input)="onSearch()">

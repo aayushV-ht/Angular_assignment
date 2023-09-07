@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { PaginationComponent } from './MainSection/pagination/pagination.component';
 import { SortingComponent } from './MainSection/sorting/sorting.component';
+import { FilterComponent } from './MainSection/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SortingComponent } from './MainSection/sorting/sorting.component';
     DeleteUserComponent,
     PaginationComponent,
     SortingComponent,
+    FilterComponent,
 
   ],
   imports: [

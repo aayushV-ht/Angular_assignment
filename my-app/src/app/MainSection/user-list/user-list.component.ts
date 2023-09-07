@@ -116,5 +116,25 @@ export class UserListComponent implements OnInit {
       });
     }
   }
+  //Filter++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  onFilterChange(filterOption: string) {
+    if (filterOption === 'all') {
+      this.filteredUsers = this.users.filter((user) =>
+        this.matchesRoleQuery(user, '')
+      );
+    } else {
+      this.filteredUsers = this.users.filter((user) =>
+        this.matchesRoleQuery(user, filterOption)
+      );
+    }
+  }
+  private matchesRoleQuery(user: any, query: string): boolean {
+    const lowerCaseQuery = query.toLowerCase();
+    return (
+
+      user.role.toLowerCase().includes(lowerCaseQuery)
+
+    );
+  }
 }
 

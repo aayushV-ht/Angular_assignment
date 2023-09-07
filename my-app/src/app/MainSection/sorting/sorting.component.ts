@@ -1,4 +1,3 @@
-// src/app/sorting/sorting.component.ts
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
