@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/user.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -10,7 +11,9 @@ export class AddUserComponent implements OnInit {
   newUser: User = { id: 0, firstName: '', lastName: '', email: '', phone: '', role: '', password: '', createdDate: new Date(), lastUpdated: new Date() };
   confirmPassword: string = '';
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+
+  }
 
   ngOnInit(): void { }
 
@@ -22,7 +25,6 @@ export class AddUserComponent implements OnInit {
       const lastUser = existingUsers[existingUsers.length - 1];
       lastUserId = lastUser.id;
     }
-
 
     const userToAdd: User = {
       id: lastUserId + 1,
@@ -36,18 +38,15 @@ export class AddUserComponent implements OnInit {
       lastUpdated: new Date()
     };
 
-
     existingUsers.push(userToAdd);
 
     localStorage.setItem('users', JSON.stringify(existingUsers));
-    location.reload();
+
+    this.router.navigate(['/user-list']);
+
     this.newUser = { id: 0, firstName: '', lastName: '', email: '', phone: '', role: '', password: '', createdDate: new Date(), lastUpdated: new Date() };
     this.confirmPassword = '';
 
-
     alert('The user has been added successfully');
-
-
   }
-
 }

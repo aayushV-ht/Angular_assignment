@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FlexLayoutModule } from '@angular/flex-layout'; 
-import { FormsModule } from '@angular/forms'; 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -29,7 +29,7 @@ import { SortingComponent } from './MainSection/sorting/sorting.component';
     DeleteUserComponent,
     PaginationComponent,
     SortingComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -37,12 +37,12 @@ import { SortingComponent } from './MainSection/sorting/sorting.component';
     FlexLayoutModule,
     FormsModule,
     NgbModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     RouterModule.forRoot([
-      {path: 'user-list', component: UserListComponent},
-      {path: 'user-card', component: UserCardComponent},
-      {path: 'add-user', component: AddUserComponent},
-      {path: '', redirectTo: '/user-list', pathMatch: 'full'},
+      { path: 'user-list', component: UserListComponent },
+      { path: 'user-card', component: UserCardComponent },
+      { path: 'add-user', component: AddUserComponent },
+      { path: '', redirectTo: '/user-list', pathMatch: 'full' },
     ]),
   ],
   providers: [],
