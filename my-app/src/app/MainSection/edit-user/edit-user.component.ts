@@ -13,7 +13,7 @@ export class EditUserComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private router: Router) {
-    this.editedUser = {}; 
+    this.editedUser = {};
   }
 
   ngOnInit(): void {
@@ -27,11 +27,11 @@ export class EditUserComponent implements OnInit {
   }
 
   onSubmit(): void {
-    
+    this.editedUser.lastUpdated = new Date();
     this.updateUserInLocalStorage(this.editedUser);
 
     this.router.navigate(['/user-list']);
-    alert("The user has been updated successfully");  
+    alert("The user has been updated successfully");
   }
 
   onCancel(): void {
