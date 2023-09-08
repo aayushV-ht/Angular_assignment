@@ -16,6 +16,7 @@ export class UserListComponent implements OnInit {
   itemsPerPageOptions: number[] = [10, 20];
   totalRecords: number = 0;
 
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class UserListComponent implements OnInit {
       this.filteredUsers = this.users;
       this.totalRecords = this.users.length;
     }
+    
   }
 
   editUser(user: any): void {
@@ -123,6 +125,7 @@ export class UserListComponent implements OnInit {
         this.matchesRoleQuery(user, '')
       );
     } else {
+
       this.filteredUsers = this.users.filter((user) =>
         this.matchesRoleQuery(user, filterOption)
       );
