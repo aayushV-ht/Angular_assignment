@@ -1,6 +1,26 @@
-.records{
+
+#hover:hover{
+    background-color: rgb(187, 183, 183);
+    cursor: pointer;
+}
+
+
+.user-stats {
+    display: flex;
+    flex-direction: row ;
+}
+
+.record {
     margin: 20px;
     padding: 30px;
-    border: solid black 2px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  
+    align-items: center;
+    font-size: large
+    
+}
 
+.label {
+    font-weight: bold;
+    margin-right: 10px; 
 }

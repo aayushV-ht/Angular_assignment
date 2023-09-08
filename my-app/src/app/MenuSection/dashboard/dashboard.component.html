@@ -1,7 +1,15 @@
 
-<span>
-    <span class="records">Total Users {{ totalUsers }}</span>
-    <span class="records">Active Users {{ activeUsers }}</span>
-    <span class="records">InActive Users {{ inactiveUsers }}</span>
-      
+<span class="user-stats">
+    <span id="hover"  class="record" (click)="handleClick()">
+        <span class="label">Total Users:</span>
+        <span class="value">{{ totalUsers }}</span>
+    </span>
+    <span class="record">
+        <span class="label">Active Users:</span>
+        <span class="value">{{ activeUsers }}</span>
+    </span>
+    <span class="record">
+        <span class="label">InActive Users:</span>
+        <span class="value">{{ inactiveUsers }}</span>
+    </span>
 </span>

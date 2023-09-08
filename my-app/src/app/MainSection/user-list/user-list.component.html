@@ -19,6 +19,7 @@
                 <th>Phone</th>
                 <th>Last Login</th>
                 <th>Role</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,8 +29,9 @@
                     <td>{{ user.id }}</td>
                     <td><img src="./assets/user.png" alt="User Image"> {{ user.firstName }} {{ user.lastName }}</td>
                     <td>{{ user.phone }}</td>
-                    <td>{{ user.last_login }}</td>
+                    <td>{{ user.last_login }}</td>  
                     <td>{{ user.role }}</td>
+                    <td>{{ user.active ? 'Active' : 'InActive'  }}</td>
                     <td>
                         <button (click)="editUser(user)">Edit</button>
                         <button (click)="deleteUser(user)">Delete</button>

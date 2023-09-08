@@ -15,10 +15,14 @@
         <label for="phone">Phone:</label>
         <input type="text" id="phone" class="textBox" name="phone" [(ngModel)]="newUser.phone" required>
     </div>
-    <div>
+    <div >
         <label for="role">Role:</label>
-        <input type="text" id="role" class="textBox" name="role" [(ngModel)]="newUser.role" required>
+        <select id="role" class="Role" name="role" [(ngModel)]="newUser.role" required>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+        </select>
     </div>
+    
     <div>
         <label for="password">Password:</label>
         <input type="password" id="password" class="textBox" name="password" [(ngModel)]="newUser.password" required>

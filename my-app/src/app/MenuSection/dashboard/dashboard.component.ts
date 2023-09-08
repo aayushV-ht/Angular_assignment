@@ -1,4 +1,5 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component ,OnInit, } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,7 @@ export class DashboardComponent implements OnInit {
   activeUsers: number = 0;
   inactiveUsers: number = 0;
 
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
 
 
@@ -34,6 +36,9 @@ export class DashboardComponent implements OnInit {
 
 
     }
+  }
+  handleClick(){
+    this.router.navigate(['/user-list']);
   }
 }
 

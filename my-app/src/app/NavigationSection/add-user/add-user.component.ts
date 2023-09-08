@@ -11,9 +11,7 @@ export class AddUserComponent implements OnInit {
   newUser: User = { id: 0, firstName: '', lastName: '', email: '', phone: '', role: '', password: '', createdDate: new Date(), lastUpdated: new Date() ,active: true};
   confirmPassword: string = '';
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-
-  }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void { }
 
