@@ -8,4 +8,5 @@ export interface User {
   password: string;
   createdDate: Date;
   lastUpdated: Date;
+  active: boolean;
 } 

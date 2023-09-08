@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  newUser: User = { id: 0, firstName: '', lastName: '', email: '', phone: '', role: '', password: '', createdDate: new Date(), lastUpdated: new Date() };
+  newUser: User = { id: 0, firstName: '', lastName: '', email: '', phone: '', role: '', password: '', createdDate: new Date(), lastUpdated: new Date() ,active: true};
   confirmPassword: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -35,7 +35,8 @@ export class AddUserComponent implements OnInit {
       role: this.newUser.role,
       password: this.newUser.password,
       createdDate: new Date(),
-      lastUpdated: new Date()
+      lastUpdated: new Date(),
+      active: true,
     };
 
     existingUsers.push(userToAdd);
@@ -44,7 +45,7 @@ export class AddUserComponent implements OnInit {
 
     this.router.navigate(['/user-list']);
 
-    this.newUser = { id: 0, firstName: '', lastName: '', email: '', phone: '', role: '', password: '', createdDate: new Date(), lastUpdated: new Date() };
+    this.newUser = { id: 0, firstName: '', lastName: '', email: '', phone: '', role: '', password: '', createdDate: new Date(), lastUpdated: new Date() ,active: true};
     this.confirmPassword = '';
 
     alert('The user has been added successfully');

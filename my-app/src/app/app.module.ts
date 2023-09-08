@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { PaginationComponent } from './MainSection/pagination/pagination.component';
 import { SortingComponent } from './MainSection/sorting/sorting.component';
 import { FilterComponent } from './MainSection/filter/filter.component';
+import { DashboardComponent } from './MenuSection/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FilterComponent } from './MainSection/filter/filter.component';
     PaginationComponent,
     SortingComponent,
     FilterComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -44,6 +46,7 @@ import { FilterComponent } from './MainSection/filter/filter.component';
       { path: 'user-list', component: UserListComponent },
       { path: 'user-card', component: UserCardComponent },
       { path: 'add-user', component: AddUserComponent },
+      { path: 'dashboard', component: DashboardComponent},
       { path: '', redirectTo: '/user-list', pathMatch: 'full' },
     ]),
   ],
