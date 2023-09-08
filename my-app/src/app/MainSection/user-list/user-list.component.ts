@@ -15,6 +15,7 @@ export class UserListComponent implements OnInit {
   recordsPerPage: number = 10;
   itemsPerPageOptions: number[] = [10, 20];
   totalRecords: number = 0;
+  selectedFilterOption: string = 'all';
 
 
   constructor(private router: Router) { }
@@ -26,8 +27,14 @@ export class UserListComponent implements OnInit {
       this.filteredUsers = this.users;
       this.totalRecords = this.users.length;
     }
-    
+  
+    const storedFilterOption = localStorage.getItem('selectedFilterOption');
+    if (storedFilterOption) {
+      this.selectedFilterOption = storedFilterOption;
+      this.onFilterChange(this.selectedFilterOption);
+    }
   }
+  
 
   editUser(user: any): void {
     this.router.navigate(['/edit-user', { userToEdit: JSON.stringify({ ...user }) }]);
@@ -84,13 +91,9 @@ export class UserListComponent implements OnInit {
     } else if (sortOption === 'createdDate') {
       this.filteredUsers.sort((a, b) => {
 
-
         const dateA = new Date(a.createdDate);
         const dateB = new Date(b.createdDate);
-        // console.log(a.firstName);
-        // console.log(typeof (dateA));
-        // console.log(dateA);
-
+        
         if (dateA === dateB) {
           return 0;
         } else if (dateA < dateB) {
@@ -119,22 +122,21 @@ export class UserListComponent implements OnInit {
     }
   }
   //Filter++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  onFilterChange(filterOption: string) {
+  onFilterChange(filterOption: string): void {
     if (filterOption === 'all') {
       this.filteredUsers = this.users.filter((user) =>
         this.matchesRoleQuery(user, '')
       );
     } else {
-
       this.filteredUsers = this.users.filter((user) =>
         this.matchesRoleQuery(user, filterOption)
       );
     }
-  }
+  }  
+  
   private matchesRoleQuery(user: any, query: string): boolean {
     const lowerCaseQuery = query.toLowerCase();
     return (
-
       user.role.toLowerCase().includes(lowerCaseQuery)
 
     );

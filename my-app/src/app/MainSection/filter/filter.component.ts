@@ -6,15 +6,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-  ngOnInit(): void { }
-  selectedFilterOption: string = 'User';
+  selectedFilterOption: string = 'sad';
 
   @Output() filterChange = new EventEmitter<string>();
+
   constructor() { }
 
-  onFilterChange(): void {
-
-    this.filterChange.emit(this.selectedFilterOption);
+  ngOnInit(): void {
+    const storedFilterOption = localStorage.getItem('selectedFilterOption');
+    if (storedFilterOption) {
+      this.selectedFilterOption = storedFilterOption;
+    }
   }
 
+  onFilterChange(): void {
+    this.filterChange.emit(this.selectedFilterOption);
+    localStorage.setItem('selectedFilterOption', this.selectedFilterOption);
+  }
 }
