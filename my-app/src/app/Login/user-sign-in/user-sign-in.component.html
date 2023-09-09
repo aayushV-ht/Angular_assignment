@@ -1,0 +1,17 @@
+<!-- user-sign-in.component.html -->
+
+<form class="login-container" (ngSubmit)="loginUser()">
+  <div class="form-group">
+    <label for="loginEmail">Email ID</label>
+    <input type="email" id="loginEmail" name="loginEmail" [(ngModel)]="loginUserEmail" required>
+  </div>
+  <div class="form-group">
+    <label for="loginPassword">Password</label>
+    <input type="password" id="loginPassword" name="loginPassword" [(ngModel)]="loginUserPassword" required>
+  </div>
+  <div *ngIf="loginError" class="error-message">
+    Invalid Email ID or Password.
+  </div>
+  <button type="submit">Login</button>
+  <p>Forgot Password ? <a routerLink="/forgot-password">Click</a></p>
+</form>

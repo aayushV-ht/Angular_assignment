@@ -1,0 +1,32 @@
+<form class="form-container" (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" required
+           [ngClass]="{'invalid-field': userForm.submitted && !['userForm.controls.firstName.valid']}">
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required
+           [ngClass]="{'invalid-field': userForm.submitted && !['userForm.controls.lastName.valid']}">
+  </div>
+  <div class="form-group">
+    <label for="email">Email ID</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+           [ngClass]="{'invalid-field': userForm.submitted && !['userForm.controls.email.valid']}">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" [(ngModel)]="user.password" required
+           [ngClass]="{'invalid-field': userForm.submitted && !['userForm.controls.password.valid']}">
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required
+           [ngClass]="{'invalid-field': userForm.submitted && !['userForm.controls.confirmPassword.valid']}">
+  </div>
+  <button type="submit" [disabled]="userForm.invalid">Register</button>
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</form>
+<div *ngIf="registered" class="success-message">
+  You have registered successfully.
+</div>

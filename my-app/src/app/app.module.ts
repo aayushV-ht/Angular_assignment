@@ -20,6 +20,11 @@ import { PaginationComponent } from './MainSection/pagination/pagination.compone
 import { SortingComponent } from './MainSection/sorting/sorting.component';
 import { FilterComponent } from './MainSection/filter/filter.component';
 import { DashboardComponent } from './MenuSection/dashboard/dashboard.component';
+import { SignupComponent } from './Login/signup/signup.component';
+import { UserSignInComponent } from './Login/user-sign-in/user-sign-in.component';
+import { ForgotPasswordUserComponent } from './Login/forgot-password-user/forgot-password-user.component';
+import { ResetPasswordUserComponent } from './Login/reset-password-user/reset-password-user.component';
+
 
 @NgModule({
   declarations: [
@@ -33,8 +38,10 @@ import { DashboardComponent } from './MenuSection/dashboard/dashboard.component'
     SortingComponent,
     FilterComponent,
     DashboardComponent,
-  
-
+    SignupComponent,
+    UserSignInComponent,
+    ForgotPasswordUserComponent,
+    ResetPasswordUserComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,10 @@ import { DashboardComponent } from './MenuSection/dashboard/dashboard.component'
       { path: 'user-card', component: UserCardComponent },
       { path: 'add-user', component: AddUserComponent },
       { path: 'dashboard', component: DashboardComponent},
-      { path: '', redirectTo: '/user-list', pathMatch: 'full' },
+      { path: 'signup', component: SignupComponent },
+      { path: 'login', component: UserSignInComponent },
+      { path: '', redirectTo: '/signup', pathMatch: 'full' },
+      
     ]),
   ],
   providers: [],
