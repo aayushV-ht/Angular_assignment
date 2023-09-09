@@ -33,6 +33,7 @@ import { DashboardComponent } from './MenuSection/dashboard/dashboard.component'
     SortingComponent,
     FilterComponent,
     DashboardComponent,
+  
 
   ],
   imports: [
